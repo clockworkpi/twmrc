@@ -112,7 +112,7 @@ fs nfs_check_timeout 16
 fs auto_eject 0
 fs binary_units 0
 fs data_format $t - $f free
-mail mailbox-local mbox /var/mail/dphys
+mail mailbox-local mbox /var/mail/cpi
 mail mua 
 mail notify 
 mail fetch_command 
