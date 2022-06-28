@@ -1,0 +1,189 @@
+#---------------------------------
+# CPI   # PROJ. : DT.R01.twmrc
+#       # FILE  : .twmrc
+#   +   # VER.  : 20220228.0718UTC
+#    +  # EMAIL : hal@clockworkpi.com
+#  +++  # HOST  : clockworkpi.com
+#---------------------------------
+
+NoGrabServer
+RestartPreviousState
+DecorateTransients
+RandomPlacement
+BorderWidth 2
+NoHighlight
+OpaqueMove
+MenuBorderWidth 1
+NoMenuShadows
+
+NoDefaults
+LeftTitleButton "~/.twm/close" = f.delete
+RightTitleButton "~/.twm/iconify" = f.iconify
+RightTitleButton "~/.twm/resize" = f.resize
+RightTitleButton "~/.twm/fullsize" = f.fullzoom
+
+TitleFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
+ResizeFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
+MenuFont "-misc-fixed-medium-r-normal--15-*-*-*-*-*-*-*"
+IconFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*-*-*-*"
+IconManagerFont "-adobe-helvetica-bold-r-normal--*-100-*-*-*"
+
+Color
+{
+   BorderColor "grey30"
+   DefaultBackground "rgb:5/5/5"
+   DefaultForeground "gray80"
+   TitleBackground "rgb:5/5/5"
+   TitleForeground "gray80"
+   MenuBackground "rgb:5/5/5"
+   MenuForeground "gray80"
+   MenuTitleBackground "gray80"
+   MenuTitleForeground "rgb:5/5/5"
+   MenuBorderColor "gray60"
+   IconBackground "rgb:4/4/4"
+   IconForeground "gray80"
+   IconBorderColor "gray70"
+   IconManagerBackground "rgb:5/5/5"
+   IconManagerForeground "gray80"
+}
+
+Cursors
+{
+   Menu "hand2"
+}
+
+ForceIcons
+Icons
+{
+   "xterm" "~/.twm/xlogo32"
+   "vmplayer" "~/.twm/xlogo32"
+   "thunderbird" "~/.twm/xlogo32"
+   "org.remmina.Remmina" "~/.twm/xlogo32"
+}
+
+MoveDelta 3
+Function "move-or-lower" { f.move f.deltastop f.lower }
+Function "move-or-raise" { f.move f.deltastop f.raise }
+Function "move-or-iconify" { f.move f.deltastop f.iconify }
+
+Button1 = : root : f.menu "main"
+Button3 = : root : f.menu "exec"
+Button1 = m : window|icon : f.function "move-or-raise"
+Button2 = m : window|icon : f.iconify
+Button3 = m : window|icon : f.resize
+Button1 = : title : f.function "move-or-raise"
+Button2 = : title : f.raiselower
+Button1 = : icon : f.function "move-or-iconify"
+Button2 = : icon : f.iconify
+Button1 = : iconmgr : f.iconify
+Button2 = : iconmgr : f.iconify
+
+NoTitle
+{
+   "gkrellm"
+}
+
+menu "main"
+{
+   ":: Dphys ::" f.title
+   "Raise..." f.raise
+   "Lower..." f.lower
+   "Focus..." f.focus
+   "Unfocus..." f.unfocus
+   "Show Iconmgr" ("gray80":"#445255") f.showiconmgr
+   "Hide Iconmgr" ("gray80":"#445255") f.hideiconmgr
+   "Kill..." f.destroy
+   "Restart TWM" f.restart
+   "Exit" ("gray80":"#773333") f.menu "exit"
+}
+
+menu "exit"
+{
+   "Are you sure ?" ("gray80":"#773333") f.title
+   "Shutdown"  f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -bc -T 'Warning! System Shutdown' -fs 12 -geometry 80x12 -bg '#332211' -fg '#dc8700' -e sudo /usr/sbin/halt -p &"
+   "No" f.nop
+   "Yes" f.quit
+}
+
+menu "exec"
+{
+   ":: Applications ::" f.title
+   " Xterm       (Ctrl-Alt-t)" ("gray80":"#20404b") f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -fs 12 -geometry 80x24 &"
+   " Xterm in Orange" ("gray80":"#864b2d") f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -fs 12 -geometry 80x24 -fg '#dc8700' &"
+   " CRT terminal" ("gray80":"#664400") f.exec "exec /usr/bin/cool-retro-term&"
+   " CMUS        (Ctrl-Alt-m)" ("gray80":"#445255") f.exec "exec xterm +sb -fa 'fixed' -fs 12 -geometry 80x24 -e cmus &"
+   " ALSA Mixer" ("gray80":"#445255") f.exec "alsamixergui &"
+   " Network...  (Ctrl-Alt-n)" ("gray80":"#2a3639") f.exec "exec /usr/bin/xterm +sb -T 'Network Manager' -fa 'fixed' -fs 12 -geometry 80x24 -e sudo /usr/bin/nmtui &"
+   " Bluetooth   (Ctrl-Alt-b)" ("gray80":"#2a3639") f.exec "exec /usr/bin/xterm +sb -T 'Bluetoothctl' -fa 'fixed' -fs 12 -geometry 80x24 -e /usr/bin/bluetoothctl &"
+   " Chromium    (Ctrl-Alt-c)" ("gray80":"#3a4649") f.exec "exec /usr/bin/chromium --incognito &"
+   " Chrome      (Ctrl-Alt-g)" ("gray80":"#3a4649") f.exec "exec /usr/bin/google-chrome --incognito &"
+   " ELinks      (Ctrl-Alt-e)" ("gray80":"#3a4649") f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -fs 12 -geometry 100x24 -e /usr/bin/elinks &"
+   " Remmina     (Ctrl-Alt-r)" ("gray80":"#3a4649") f.exec "exec /usr/bin/remmina &"
+   " VIM" ("gray80":"#445255") f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -fs 12 -geometry 100x24 -e /usr/bin/vim &"
+   " Emacs" ("gray80":"#445255") f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -fs 12 -geometry 100x24 -e /usr/bin/emacs -nw &"
+   " Tilde" ("gray80":"#445255") f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -fs 12 -geometry 100x24 -e /usr/bin/tilde &"
+   " Sublime     (Ctrl-Alt-s)" ("gray80":"#445255") f.exec "exec /home/dphys/bin/sublime &"
+   " Obsidian    (Ctrl-Alt-o)" ("gray80":"#445255") f.exec "exec /usr/bin/obsidian &"
+   " VSCode      (Ctrl-Alt-v)" ("gray80":"#445255") f.exec "exec /home/dphys/bin/code &"
+   " Basic Calc" ("gray80":"#314852") f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -fs 12 -geometry 80x24 -e /usr/bin/bc -l &"
+   " Gnuplot" ("gray80":"#314852") f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -fs 12 -geometry 80x24 -e /usr/bin/gnuplot &"
+   " DosBox" ("gray80":"#20404b") f.exec "exec /usr/bin/dosbox &"
+   " Chocolate-Doom" ("gray80":"#20404b") f.exec "SDL_RENDER_DRIVER=software /usr/games/chocolate-doom &"
+   " Blender" ("gray80":"#445255") f.exec "exec ~/bin/blender &"
+   " GIMP" ("gray80":"#445255") f.exec "exec /usr/bin/gimp &"
+   " Inkscape" ("gray80":"#445255") f.exec "exec /usr/bin/inkscape &"
+   " Xfig" ("gray80":"#445255") f.exec "exec /usr/bin/xfig &"
+   " Utilities" ("gray80":"#335533") f.menu "Utilities"
+}
+
+menu "Utilities"
+{
+   ":: Utilities ::" f.title
+   " Nedit" f.exec "exec /usr/bin/nedit &"
+   " Xpdf" f.exec "exec /usr/bin/xpdf &"
+   " Xcalc" ("gray80":"#314852") f.exec "exec /usr/bin/xcalc &"
+   " Xaos" ("gray80":"#314852") f.exec "exec /usr/bin/xaos &"
+   " XClock" f.exec "exec /usr/bin/xclock &"
+   " OClock" f.exec "exec /usr/bin/oclock &"
+   " Xeyes" f.exec "exec /usr/bin/xeyes &"
+   " Xmag"   f.exec "exec /usr/bin/xmag &"
+   " aRandr"   f.exec "exec /usr/bin/arandr &"
+   " Gkrellm"   f.exec "/usr/bin/gkrellm &"
+}
+
+WindowRing
+{
+   "xterm"
+   "xpdf"
+}
+
+"t" = m | c: all : f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -fs 12 -geometry 80x24 &"
+"m" = m | c: all : f.exec "exec xterm +sb -fa 'fixed' -fs 12 -geometry 80x24 -e cmus &"
+"n" = m | c: all : f.exec "exec /usr/bin/xterm +sb -T 'Network Manager' -fa 'fixed' -fs 12 -geometry 80x24 -e sudo /usr/bin/nmtui &"
+"b" = m | c: all : f.exec "exec /usr/bin/xterm +sb -T 'Bluetoothctl' -fa 'fixed' -fs 12 -geometry 80x24 -e /usr/bin/bluetoothctl &"
+"c" = m | c: all : f.exec "exec /usr/bin/chromium --incognito &"
+"g" = m | c: all : f.exec "exec /usr/bin/google-chrome --incognito &"
+"e" = m | c: all : f.exec "exec /usr/bin/xterm +sb -fa 'fixed' -fs 12 -geometry 100x24 -e /usr/bin/elinks &"
+"s" = m | c: all : f.exec "exec /home/dphys/bin/sublime &"
+"o" = m | c: all : f.exec "exec /usr/bin/obsidian &"
+"v" = m | c: all : f.exec "exec /home/dphys/bin/code &"
+"r" = m | c: all : f.exec "exec /usr/bin/remmina &"
+
+"i" = m | s: all : f.iconify
+"x" = m | s: all : f.delete
+"F12" = : all : f.fullzoom
+"F9" = : all : f.focus
+"Tab" = m : all : f.warpring "next"
+"f" = m | s: all: f.focus
+"u" = m | s: all: f.unfocus
+"n" = m : all  : f.warpring "next"
+"n" = m|s : all  : f.warpring "prev"
+
+"XF86MonBrightnessUp" = : all : f.exec "exec /usr/local/bin/cpi-backlight up"
+"XF86MonBrightnessDown" = : all : f.exec "exec /usr/local/bin/cpi-backlight down"
+
+"XF86AudioLowerVolume" = : all : f.exec "exec pactl set-sink-volume @DEFAULT_SINK@ -10%"
+"XF86AudioRaiseVolume" = : all : f.exec "exec pactl set-sink-volume @DEFAULT_SINK@ +10%"
+
+"Print" =  : all : f.exec "exec import -window root screenshot.`date +\"%Y.%m.%d.%H%M%S\"`.png"
+

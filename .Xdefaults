@@ -1,0 +1,49 @@
+# CPI Xdefaults
+# wing defaults change the behavior of clients using the
+# X libraries
+
+Xft.rgba: none
+
+*background:    gray70
+*foreground:    black
+
+# Xcursor*theme: whiteglass 
+
+# The rest of the defaults are client specific
+
+# xterm*Foreground:	#bbccdd
+
+URxvt.inputMethod:      ibus
+
+# xterm*VT100*Translations: #override\n\
+# Shift <KeyRelease>:insert-seven-bit()
+# <Key>F3: string("xterm")
+
+xterm*Foreground:	#bfb89a
+xterm*Background:       #111111
+xterm*Border:           dark blue
+xterm*ScrollBar:        off
+xterm*TitleBar:         on
+xterm*TextUnderIcon:    on
+xterm*AllowIconInput:   on
+xterm*AutoRaise:        on
+xterm*termtype:         vt100
+xterm*ttyModes:         intr ^c erase ^h susp ^@ dsusp ^@ kill ^u eof ^d susp ^z
+xterm*saveLines: 2048
+xterm*pointerColor: #aaaaaa
+
+xload*Foreground:	#555555
+xload*Background:	#000000
+xload*update:	3
+xload*geometry: 200
+
+xclock*Foreground:	#555555
+xclock*Background:	#000000
+
+xlock*mode: blank
+xlock*timeout: 3
+
+xclipboard*Foreground:	#7b8c5a
+xclipboard*Background:	#333333
+
+xpdf*Background:  #777777

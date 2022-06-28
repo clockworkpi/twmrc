@@ -1,0 +1,37 @@
+sensor sensor_config_version 1
+sensor sensor_sysdep_private 2
+sensor sensor_float_factor 10000
+sensor gkrellm_float_factor 1000
+sensor "temp" "thermal_zone0" 10000 0 0 0
+sensor "BAT1" "IBM ACPI Battery 1" 10000 0 0 0
+sensor "BAT2" "IBM ACPI Battery 2" 10000 0 0 0
+sensor "CPU" "IBM ACPI CPU" 10000 0 1 0
+sensor "GPU" "IBM ACPI GPU" 10000 0 0 0
+sensor "HDD" "IBM ACPI HDD" 10000 0 0 0
+sensor "PCI" "IBM ACPI Mini PCI Module" 10000 0 0 0
+sensor "temp1" "acpitz@0/temp1" 0 0 0 0
+sensor "Package id 0" "coretemp@0/temp1" 0 0 0 0
+sensor "Core 0" "coretemp@0/temp2" 0 0 0 0
+sensor "Core 1" "coretemp@0/temp3" 0 0 0 0
+sensor "temp1" "iwlwifi_1@0/temp1" 0 0 0 0
+sensor "temp1" "pch_skylake@0/temp1" 0 0 0 0
+sensor "temp" "thermal_zone1" 10000 0 0 0
+sensor "temp" "thermal_zone2" 10000 0 0 0
+sensor "temp" "thermal_zone3" 10000 0 0 0
+sensor "temp1" "thinkpad@0/temp1" 0 0 0 0
+sensor "temp2" "thinkpad@0/temp2" 0 0 0 0
+sensor "temp3" "thinkpad@0/temp3" 0 0 0 0
+sensor "temp4" "thinkpad@0/temp4" 0 0 0 0
+sensor "temp5" "thinkpad@0/temp5" 0 0 0 0
+sensor "temp6" "thinkpad@0/temp6" 0 0 0 0
+sensor "temp7" "thinkpad@0/temp7" 0 0 0 0
+sensor "temp8" "thinkpad@0/temp8" 0 0 0 0
+sensor "GPU" "nVidia GPU Core" 10000 0 1 0
+sensor "Fan" "IBM ACPI Fan Sensor" 10000 0 1 0
+sensor "fan1" "thinkpad@0/fan1" 0 0 0 0
+sensor "in0" "BAT0@0/in0" 0 0 0 0
+sensor "in0" "BAT1@0/in0" 0 0 0 0
+sensor "in0" "ucsi_source_psy_USBC000:001@0/in0" 0 0 0 0
+sensor units_fahrenheit 0
+sensor show_units 1
+sensor volt_display_mode 0

@@ -1,0 +1,41 @@
+author = hadron <hadron@antisocial.com>
+
+chart_in_color			= #c27200
+chart_in_color_grid		= gray20
+chart_out_color			= #c27200
+chart_out_color_grid		= gray20
+
+bg_grid_mode			= 1
+
+rx_led_x 			= 2
+rx_led_y 			= 1
+tx_led_x 			= -2
+tx_led_y 			= 1
+
+timer_time_x			= 2
+timer_button_x			= -2
+
+krell_slider_depth		= 1
+krell_slider_x_hot		= 1 
+
+StyleChart *.border		= 2,2,2,2
+StyleChart *.textcolor		= #c27200 black none
+
+StylePanel *.border		= 2,2,2,2
+StylePanel *.textcolor		= #c27200 black none
+StylePanel *.label_position	= 50
+StylePanel *.krell_depth	= 1
+
+StyleMeter *.border		= 2,2,2,2
+StyleMeter *.textcolor		= #c27200 black none
+StyleMeter *.label_position	= 50
+StyleMeter fs.label_position	= 0
+StyleMeter cal.font		= large_font
+StyleMeter clock.font		- large_font
+
+decal_alarm_frames = 10
+decal_warn_frames = 10
+
+large_font	= "-adobe-helvetica-medium-r-normal-*-*-100-*-*-p-*-iso8859-1"
+normal_font	= "-adobe-helvetica-medium-r-normal-*-*-100-*-*-p-*-iso8859-1"
+small_font	= "-adobe-helvetica-medium-r-normal-*-*-80-*-*-p-*-iso8859-1"
